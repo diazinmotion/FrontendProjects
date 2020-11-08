@@ -1,0 +1,14 @@
+.DS_Store
+Vue JS/02. Firebase App/node_modules/
+Vue JS/02. Firebase App/dist/
+Vue JS/02. Firebase App/npm-debug.log*
+Vue JS/02. Firebase App/yarn-debug.log*
+Vue JS/02. Firebase App/yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

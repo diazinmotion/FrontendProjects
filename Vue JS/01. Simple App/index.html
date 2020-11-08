@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS Simple App</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .box-content {
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h2 class="pb-0 mb-0 mt-4">Hello World</h2>
+            <small>This is a simple vue js app</small>
+            <hr>
+            <div class="row">
+                <div class="col-md-12 box-content">
+                    <span>{{ msg }}</span>
+                </div>
+                <div class="col-md-12 box-content">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Your Name</label>
+                                <input v-model="fullName" type="text" class="form-control"/>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>You typed:</strong>
+                                <p class="pt-1 mb-0">{{ (fullName) ? 'You\'re, ' + fullName : 'Please input your name.' }}</p>
+                                <a v-if="fullName" v-on:click="greet" href="javascript:void(0)">Greet Me!</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-12 box-content">
+                    <a v-for="(item, index) in links" :key="index" :href="item.url" class="btn btn-sm btn-primary mr-2">{{ item.name }}</a>
+                </div>
+                <div class="col-md-12 box-content">
+                    <form v-on:submit.prevent="addTodo">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Add To Do:</label>
+                                <input v-model="todoItem" type="text" class="form-control"/>
+                                <button class="btn btn-primary btn-sm mt-2">Add</button>
+                            </div>
+                            <div class="col-md-6">
+                                <strong>Your Current To Do:</strong>
+                                <ul class="list-group mt-2">
+                                    <li v-for="(v, i) in currentTodo" :key="i" class="list-group-item"><a v-on:click="deleteItem(i)" href="javascript:void()">&times;</a> {{ v }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
